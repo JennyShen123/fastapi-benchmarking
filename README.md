@@ -63,3 +63,16 @@ go get -u github.com/gin-gonic/gin
 # Run the main Go application
 go run ./main.go
 ```
+
+### wrk - A HTTP Benchmarking Tool
+
+`wrk` is
+
+ a modern HTTP benchmarking tool capable of generating significant load when run on a single multi-core CPU. It combines a multithreaded design with scalable event notification systems such as epoll and kqueue. Here's how to install `wrk`:
+
+```bash
+# Install wrk using Homebrew
+brew install wrk
+```
+
+For more information and advanced usage, visit [wrk's GitHub repository](https://github.com/wg/wrk).
