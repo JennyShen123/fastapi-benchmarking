@@ -21,7 +21,6 @@ func main() {
 	// Setup route handlers
 	r.GET("/go/", rootHandler)
 	r.GET("/go/async_sleep_in_thread/", asyncSleepInThreadHandler)
-	r.GET("/go/async_sleep/", asyncSleepHandler)
 	r.GET("/go/sync/", syncSleepHandler)
 
 	// Listen and serve on 0.0.0.0:8000
@@ -37,16 +36,6 @@ func asyncSleepInThreadHandler(c *gin.Context) {
 		time.Sleep(1 * time.Second)
 	}()
 	c.JSON(http.StatusOK, Message{"sleep run in thread pool"})
-}
-
-func asyncSleepHandler(c *gin.Context) {
-	done := make(chan bool)
-	go func() {
-		time.Sleep(1 * time.Second)
-		done <- true
-	}()
-	<-done
-	c.JSON(http.StatusOK, Message{"async mode sleep"})
 }
 
 func syncSleepHandler(c *gin.Context) {
